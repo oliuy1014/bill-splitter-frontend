@@ -1,6 +1,5 @@
 export interface BuyerI {
   name: string;
-  total: number;
 }
 
 export interface ItemI {
@@ -13,7 +12,7 @@ export interface ItemI {
 
 export interface BillI {
   _id: string;
-  buyers?: string[];
+  buyers?: BuyerI[];
   createdAt: string;
   items: ItemI[];
   store: string;

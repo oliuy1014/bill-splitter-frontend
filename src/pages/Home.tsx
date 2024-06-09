@@ -1,10 +1,10 @@
-import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import AllBills from '../components/AllBills'
 
 function Home() {
   return (
     <>
-      <Navbar />
+      <Footer />
       <AllBills />
     </>
   )
