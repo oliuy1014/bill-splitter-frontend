@@ -1,4 +1,5 @@
 export interface BuyerI {
+  _id: string;
   name: string;
 }
 

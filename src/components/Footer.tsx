@@ -1,3 +1,7 @@
+/* Purpose: Display footer containing icons for app navigation
+ * Params: None
+ * Errors: TODO
+ */
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
@@ -6,6 +10,7 @@ import SortIcon from '@mui/icons-material/Sort';
 
 const Footer = () => {
 
+  // fontsize determines icon size
   const iconSX = { fontSize: 30 }
 
   const avoidRedundantReload = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, link: string) => {

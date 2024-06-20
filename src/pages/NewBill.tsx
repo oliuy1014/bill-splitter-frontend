@@ -1,7 +1,17 @@
+/* Purpose: Display input form to create new bill ,
+ * Params: 
+ * - _id: string (bill's id from DB)
+ * - buyers: string[] (names of buyers)
+ * - createdAt: string (date bill was created in DB, TODO: write form of string)
+ * - store: string (name of store where bill was paid TODO: change to bill name? like a device nickname?)
+ * Errors: TODO
+ */
 import { useState } from 'react';
 import Footer from '../components/Footer';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
+// type for items without id field (pre-database entry)
 type Item = {
   name: string,
   quantity: number,
@@ -53,12 +63,11 @@ const NewBill = () => {
 
   return (
     <>
-    <Footer />
     <div className="new-bill-container">
       <div className="header">
         <h3>ADD NEW RECEIPT</h3>
       </div>
-      <div className={`entry-options ${(manualEntry || photoEntry) && "disabled"}`}>
+      <div className={`entry-options ${(manualEntry || photoEntry) ? "no-display" : ""}`}>
       <button
         className="receipt-entry"
         onClick={() => {
@@ -76,8 +85,8 @@ const NewBill = () => {
         Take a Photo
       </button>
       </div>
-      <button 
-        className={`back-button ${(!manualEntry && !photoEntry) && "disabled"}`}
+      <button
+        className={`back-button ${(!manualEntry && !photoEntry) ? "no-display" : ""}`}
         onClick={() => {
           setManualEntry(false);
           setPhotoEntry(false);
@@ -85,21 +94,21 @@ const NewBill = () => {
       >
         <ArrowBackIcon />
       </button>
-      <div className={`manual-entry ${!manualEntry && "disabled"}`}>
-        <form className='shop-name-form' onSubmit={addBill}>
-          <label className='store'>
-            Store name:
-            <input
-              type="text"
-              name="store"
-              required
-              value={ store }
-              onChange={(e) => {setStore(e.target.value)}}
-            />
-          </label>
-        <button type='submit'>
-          Add Bill
-        </button>
+      <div className={`manual-entry ${!manualEntry ? "no-display" : ""}`}>
+        <form className='store-name-form' onSubmit={addBill}>
+          <input
+            type="text"
+            name="store"
+            placeholder='Store Name'
+            required
+            value={ store }
+            onChange={(e) => {setStore(e.target.value)}}
+          />
+          <div className="submit-bill-button-container">
+            <button className="submit-bill-button" type='submit'>
+              Add Bill
+            </button>
+          </div>
         </form>
         <div className="items-table">
           {items.map((item, index) => {
@@ -123,7 +132,7 @@ const NewBill = () => {
             <input
               type="text"
               name="name"
-              placeholder='Enter Item Name'
+              placeholder='Item Name'
               required
               value={ name }
               maxLength={18}
@@ -161,15 +170,16 @@ const NewBill = () => {
               onInvalid={e => (e.target as HTMLInputElement).setCustomValidity("Please enter a valid dollar amount: (ex: 12.03)")}
             />
           </label>
-          <button>
-            Add Item
+          <button type='submit' className='add-btn'>
+            <AddCircleIcon/>
           </button>
         </form>
       </div>
-      <div className={`photo-entry ${!photoEntry && "disabled"}`}>
+      <div className={`photo-entry ${!photoEntry ? "no-display" : ""}`}>
         <p>Photo entry chosen!</p>
       </div>
     </div>
+    <Footer />
     </>
   )
 }

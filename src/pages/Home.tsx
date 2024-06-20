@@ -4,8 +4,8 @@ import AllBills from '../components/AllBills'
 function Home() {
   return (
     <>
-      <Footer />
       <AllBills />
+      <Footer />
     </>
   )
 }

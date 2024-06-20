@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home"
 import NewBill from './pages/NewBill';
+import HowTo from './pages/HowTo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // flow: upload receipt or list of items and prices X
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/newBill/" element={<NewBill />} />
+          <Route path="/howTo/" element={<HowTo />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
