@@ -1,12 +1,11 @@
-import Footer from '../components/Footer'
 import AllBills from '../components/AllBills'
+import PageLayout from '../components/PageLayout'
 
 function Home() {
   return (
-    <>
+    <PageLayout>
       <AllBills />
-      <Footer />
-    </>
+    </PageLayout>
   )
 }
 
