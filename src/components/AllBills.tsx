@@ -79,7 +79,7 @@ const bills = {
     },
     {
       _id: "2",
-      buyers: [ {_id: "2834", name: "bobdylan"}, {_id: "19234", name: "crabman"}, {_id: "2834", name: "bobdylan"}, {_id: "19234", name: "crabman"}],
+      buyers: [ {_id: "2834", name: "bobdylan"}, {_id: "19234", name: "crabman"}, {_id: "2894", name: "santa"}, {_id: "19234", name: "crabman"}],
       createdAt: "jan 4",
       items: [
         {
